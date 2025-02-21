@@ -52,14 +52,10 @@
             border-radius: 50px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            padding: 10px 0;
-            transition: all 0.3s ease;
-        }
-        .navbar .nav-links {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
         }
         .navbar a {
             color: #fff;
@@ -95,15 +91,6 @@
         .navbar a.active::after {
             width: 60%;
             left: 20%;
-        }
-        .hamburger {
-            display: none;
-            font-size: 30px;
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 10px;
         }
         .language-switcher {
             position: fixed;
@@ -236,6 +223,7 @@
             object-fit: contain;
             border-radius: 10px;
             transition: all 0.3s ease;
+            loading: lazy; /* 延遲加載圖片 */
         }
         .product p {
             margin: 10px 0 0 0;
@@ -346,38 +334,15 @@
             transform: translateY(-5px);
         }
 
-        /* 响应式设计 */
+        /* 響應式設計 */
         @media (max-width: 768px) {
             .navbar {
                 width: 90%;
-                top: 10px;
                 padding: 5px 0;
             }
-            .hamburger {
-                display: block;
-                position: absolute;
-                left: 15px;
-            }
-            .navbar .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                border-radius: 0 0 15px 15px;
-            }
-            .navbar .nav-links.active {
-                display: flex;
-            }
             .navbar a {
-                padding: 15px;
+                padding: 10px 15px;
                 font-size: 16px;
-            }
-            .language-switcher {
-                top: 10px;
-                right: 60px;
             }
             .language-btn {
                 padding: 8px 15px;
@@ -387,10 +352,10 @@
                 width: 250px;
             }
             .home-section h1 {
-                font-size: 40px;
+                font-size: 50px;
             }
             .home-section p {
-                font-size: 16px;
+                font-size: 18px;
                 max-width: 90%;
             }
             .cta-button {
@@ -403,8 +368,7 @@
             }
             .product {
                 width: 100%;
-                height: auto;
-                min-height: 300px;
+                height: 280px;
             }
             .product img {
                 width: 100%;
@@ -419,10 +383,10 @@
                 font-size: 14px;
             }
             h2 {
-                font-size: 30px;
+                font-size: 32px;
             }
             .section {
-                padding: 40px 10px;
+                padding: 60px 10px;
             }
             #philosophy img, #about img {
                 width: 100%;
@@ -431,23 +395,31 @@
         }
 
         @media (max-width: 480px) {
-            .products {
-                grid-template-columns: 1fr;
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .language-btn {
+                padding: 6px 12px;
+                font-size: 12px;
             }
             .home-section .logo {
                 width: 200px;
             }
             .home-section h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
             .home-section p {
-                font-size: 14px;
+                font-size: 16px;
             }
-            .navbar a {
-                font-size: 14px;
+            .products {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .language-btn {
-                font-size: 12px;
+            .product {
+                height: 240px;
+            }
+            .product img {
+                height: 160px;
             }
             #back-to-top {
                 width: 40px;
@@ -460,20 +432,17 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 導航欄 -->
     <div class="navbar">
-        <button class="hamburger">☰</button>
-        <div class="nav-links">
-            <a href="#home"></a>
-            <a href="#products"></a>
-            <a href="#philosophy"></a>
-            <a href="#about"></a>
-            <a href="#testimonials"></a>
-            <a href="#contact"></a>
-        </div>
+        <a href="#home"></a>
+        <a href="#products"></a>
+        <a href="#philosophy"></a>
+        <a href="#about"></a>
+        <a href="#testimonials"></a>
+        <a href="#contact"></a>
     </div>
 
-    <!-- 语言切换 -->
+    <!-- 語言切換 -->
     <div class="language-switcher">
         <button class="language-btn" id="current-lang">简体</button>
         <div class="language-dropdown">
@@ -484,15 +453,15 @@
         </div>
     </div>
 
-    <!-- 首页 -->
+    <!-- 首頁 -->
     <div id="home" class="section home-section">
-        <img src="images/logo.png" alt="品牌Logo" class="logo">
+        <img src="images/logo.png" alt="品牌Logo" class="logo" loading="lazy">
         <h1></h1>
         <p></p>
         <a href="#products" class="cta-button"></a>
     </div>
 
-    <!-- 产品展示区 -->
+    <!-- 產品展示區 -->
     <div id="products" class="section">
         <h2></h2>
         <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
@@ -507,202 +476,202 @@
         </div>
         <div class="products">
             <div class="product">
-                <img src="images/shoe1.jpg" alt="星光漫步">
+                <img src="images/shoe1.jpg" alt="星光漫步" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe2.jpg" alt="彩虹飞跃">
+                <img src="images/shoe2.jpg" alt="彩虹飞跃" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe3.jpg" alt="云端轻盈">
+                <img src="images/shoe3.jpg" alt="云端轻盈" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe4.jpg" alt="梦幻冒险">
+                <img src="images/shoe4.jpg" alt="梦幻冒险" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe5.jpg" alt="活力晨曦">
+                <img src="images/shoe5.jpg" alt="活力晨曦" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe6.jpg" alt="海洋探秘">
+                <img src="images/shoe6.jpg" alt="海洋探秘" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe7.jpg" alt="森林漫游">
+                <img src="images/shoe7.jpg" alt="森林漫游" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe8.jpg" alt="银河奔跑">
+                <img src="images/shoe8.jpg" alt="银河奔跑" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe9.jpg" alt="微风轻舞">
+                <img src="images/shoe9.jpg" alt="微风轻舞" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe10.jpg" alt="极光逐梦">
+                <img src="images/shoe10.jpg" alt="极光逐梦" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe11.jpg" alt="星辰守护">
+                <img src="images/shoe11.jpg" alt="星辰守护" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe12.jpg" alt="童趣派对">
+                <img src="images/shoe12.jpg" alt="童趣派对" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe13.jpg" alt="晴空漫步">
+                <img src="images/shoe13.jpg" alt="晴空漫步" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe14.jpg" alt="奇幻旅程">
+                <img src="images/shoe14.jpg" alt="奇幻旅程" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe15.jpg" alt="晨雾柔步">
+                <img src="images/shoe15.jpg" alt="晨雾柔步" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe16.jpg" alt="飞鸟轻翔">
+                <img src="images/shoe16.jpg" alt="飞鸟轻翔" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe17.jpg" alt="花海嬉戏">
+                <img src="images/shoe17.jpg" alt="花海嬉戏" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe18.jpg" alt="月光漫游">
+                <img src="images/shoe18.jpg" alt="月光漫游" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe19.jpg" alt="彩霞追逐">
+                <img src="images/shoe19.jpg" alt="彩霞追逐" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe20.jpg" alt="冒险先锋">
+                <img src="images/shoe20.jpg" alt="冒险先锋" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe21.jpg" alt="晨星闪烁">
+                <img src="images/shoe21.jpg" alt="晨星闪烁" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe22.jpg" alt="幻想乐园">
+                <img src="images/shoe22.jpg" alt="幻想乐园" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe23.jpg" alt="微光之旅">
+                <img src="images/shoe23.jpg" alt="微光之旅" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe24.jpg" alt="星空探险">
+                <img src="images/shoe24.jpg" alt="星空探险" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe25.jpg" alt="活力旋律">
+                <img src="images/shoe25.jpg" alt="活力旋律" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe26.jpg" alt="梦境飞翔">
+                <img src="images/shoe26.jpg" alt="梦境飞翔" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe27.jpg" alt="轻盈步伐">
+                <img src="images/shoe27.jpg" alt="轻盈步伐" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe28.jpg" alt="奇趣探秘">
+                <img src="images/shoe28.jpg" alt="奇趣探秘" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe29.jpg" alt="晨光逐影">
+                <img src="images/shoe29.jpg" alt="晨光逐影" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe30.jpg" alt="星河漫步">
+                <img src="images/shoe30.jpg" alt="星河漫步" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe31.jpg" alt="风铃轻响">
+                <img src="images/shoe31.jpg" alt="风铃轻响" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe32.jpg" alt="童心飞扬">
+                <img src="images/shoe32.jpg" alt="童心飞扬" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe33.jpg" alt="晴日畅游">
+                <img src="images/shoe33.jpg" alt="晴日畅游" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe34.jpg" alt="梦幻星途">
+                <img src="images/shoe34.jpg" alt="梦幻星途" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe35.jpg" alt="彩虹之旅">
+                <img src="images/shoe35.jpg" alt="彩虹之旅" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe36.jpg" alt="云海漫行">
+                <img src="images/shoe36.jpg" alt="云海漫行" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe37.jpg" alt="微光童话">
+                <img src="images/shoe37.jpg" alt="微光童话" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe38.jpg" alt="奇境漫游">
+                <img src="images/shoe38.jpg" alt="奇境漫游" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe39.jpg" alt="星光乐章">
+                <img src="images/shoe39.jpg" alt="星光乐章" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
             <div class="product">
-                <img src="images/shoe40.jpg" alt="活力畅想">
+                <img src="images/shoe40.jpg" alt="活力畅想" loading="lazy">
                 <p></p>
                 <div class="details"></div>
             </div>
@@ -712,26 +681,26 @@
     <div id="philosophy" class="section">
         <h2></h2>
         <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
-        <img src="images/philosophy.jpg" alt="品牌理念" style="width: 600px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);">
+        <img src="images/philosophy.jpg" alt="品牌理念" style="width: 600px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);" loading="lazy">
         <div class="divider"></div>
     </div>
 
-    <!-- 关于我们 -->
+    <!-- 關於我們 -->
     <div id="about" class="section">
         <h2></h2>
         <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
-        <img src="images/team.jpg" alt="团队" style="width: 700px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);">
+        <img src="images/team.jpg" alt="团队" style="width: 700px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);" loading="lazy">
         <div class="divider"></div>
     </div>
 
-    <!-- 客户评价 -->
+    <!-- 客戶評價 -->
     <div id="testimonials" class="section">
         <h2></h2>
         <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
         <div class="divider"></div>
     </div>
 
-    <!-- 联系我们 -->
+    <!-- 聯繫我們 -->
     <div id="contact" class="section">
         <h2></h2>
         <p style="font-size: 20px; color: #ddd;"></p>
@@ -741,16 +710,16 @@
         <a href="mailto:service@yudrich.com" class="cta-button" style="margin-top: 30px;"></a>
     </div>
 
-    <!-- 页脚 -->
+    <!-- 頁腳 -->
     <footer>
         <p></p>
     </footer>
 
-    <!-- 返回顶部按钮 -->
+    <!-- 返回頂部按鈕 -->
     <button id="back-to-top" title="">↑</button>
     <!-- JavaScript -->
     <script>
-        // 翻译对象
+        // 翻譯對象
         const translations = {
             'zh-CN': {
                 title: 'YUDRICH 尤德里奇 - 引领时尚童鞋新风尚',
@@ -1022,24 +991,17 @@
             }
         };
 
-        // 汉堡菜单切换
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        // 導航平滑滾動
+        const navLinks = document.querySelectorAll('.navbar a');
 
-        // 导航平滑滚动
-        const navItems = document.querySelectorAll('.navbar a');
-        navItems.forEach(link => {
+        navLinks.forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
 
-                navItems.forEach(link => link.classList.remove('active'));
+                navLinks.forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
-                navLinks.classList.remove('active'); // 关闭移动端菜单
 
                 window.scrollTo({
                     top: targetSection.offsetTop - 80,
@@ -1057,7 +1019,7 @@
                 }
             });
 
-            navItems.forEach(link => {
+            navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
@@ -1066,7 +1028,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
-            navItems[0].classList.add('active');
+            navLinks[0].classList.add('active');
         });
 
         const backToTopButton = document.getElementById('back-to-top');
@@ -1078,12 +1040,12 @@
             }
         });
         backToTopButton.addEventListener('click', () => {
-            navItems.forEach(link => link.classList.remove('active'));
-            navItems[0].classList.add('active');
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[0].classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // 产品筛选功能
+        // 產品篩選功能
         const products = document.querySelectorAll('.product');
         const searchInput = document.getElementById('search-input');
         const priceFilter = document.getElementById('price-filter');
@@ -1111,7 +1073,7 @@
         searchInput.addEventListener('input', filterProducts);
         priceFilter.addEventListener('change', filterProducts);
 
-        // 语言切换功能
+        // 語言切換功能
         const currentLangBtn = document.getElementById('current-lang');
         const langButtons = document.querySelectorAll('.language-dropdown button');
         let currentLang = 'zh-CN';
