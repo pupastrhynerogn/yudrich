@@ -66,6 +66,7 @@
             position: relative;
             transition: all 0.3s ease;
             cursor: pointer;
+            white-space: nowrap; /* 防止換行 */
         }
         .navbar a::after {
             content: '';
@@ -123,9 +124,10 @@
             border-radius: 15px;
             padding: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1002;
         }
-        .language-switcher:hover .language-dropdown {
-            display: block;
+        .language-dropdown.active {
+            display: block; /* 點擊切換顯示 */
         }
         .language-dropdown button {
             display: block;
@@ -337,15 +339,20 @@
         @media (max-width: 768px) {
             .navbar {
                 width: 90%;
-                padding: 5px 0;
+                padding: 5px 10px;
+                top: 10px;
             }
             .navbar a {
-                padding: 10px 15px;
-                font-size: 16px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            .language-switcher {
+                top: 60px; /* 移動到導航欄下方 */
+                right: 10px;
             }
             .language-btn {
-                padding: 8px 15px;
-                font-size: 14px;
+                padding: 6px 12px;
+                font-size: 12px;
             }
             .home-section .logo {
                 width: 250px;
@@ -363,7 +370,7 @@
             }
             .products {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+                gap: 15px; /* 增加產品間距 */
             }
             .product {
                 height: 280px;
@@ -392,11 +399,22 @@
         }
 
         @media (max-width: 480px) {
+            .navbar {
+                padding: 5px 5px;
+            }
             .navbar a {
-                padding: 8px 10px;
-                font-size: 14px;
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+            .language-switcher {
+                top: 50px;
+                right: 5px;
             }
             .language-btn {
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+            .language-dropdown button {
                 padding: 6px 12px;
                 font-size: 12px;
             }
@@ -411,7 +429,7 @@
             }
             .products {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                gap: 10px; /* 增加產品間距 */
             }
             .product {
                 height: 240px;
@@ -1077,10 +1095,24 @@
         searchInput.addEventListener('input', filterProducts);
         priceFilter.addEventListener('change', filterProducts);
 
-        // 語言切換功能
+        // 語言切換功能優化
         const currentLangBtn = document.getElementById('current-lang');
+        const langDropdown = document.querySelector('.language-dropdown');
         const langButtons = document.querySelectorAll('.language-dropdown button');
         let currentLang = 'zh-CN';
+
+        // 點擊語言按鈕切換下拉菜單
+        currentLangBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 防止事件冒泡
+            langDropdown.classList.toggle('active');
+        });
+
+        // 點擊外部關閉下拉菜單
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && e.target !== currentLangBtn) {
+                langDropdown.classList.remove('active');
+            }
+        });
 
         function updateLanguage(lang) {
             const t = translations[lang];
@@ -1135,6 +1167,7 @@
                 currentLang = button.getAttribute('data-lang');
                 currentLangBtn.textContent = button.textContent.trim();
                 updateLanguage(currentLang);
+                langDropdown.classList.remove('active'); // 選擇後關閉下拉菜單
             });
         });
 
