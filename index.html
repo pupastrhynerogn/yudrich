@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUDRICH 尤德里奇 - 引领时尚童鞋新风尚</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0f0c29;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Cdefs%3E%3Cfilter id="glow"%3E%3CfeGaussianBlur stdDeviation="3" result="coloredBlur"/%3E%3CfeMerge%3E%3CfeMergeNode in="coloredBlur"/%3E%3CfeMergeNode in="SourceGraphic"/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg opacity=".6"%3E%3Ccircle cx="100" cy="100" r="6" fill="%23ff6b6b" filter="url(%23glow)"/%3E%3Ccircle cx="700" cy="200" r="5" fill="%234ecdc4" filter="url(%23glow)"/%3E%3Ccircle cx="400" cy="600" r="7" fill="%23f4e285" filter="url(%23glow)"/%3E%3Ccircle cx="200" cy="400" r="4" fill="%23ffffff" filter="url(%23glow)"/%3E%3C/g%3E%3C/svg%3E') repeat;
+            animation: particleMove 25s infinite linear;
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 80%);
+            z-index: -1;
+        }
+        @keyframes particleMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-60px, -60px); }
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: #fff;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 50%;
+            background: #ff6b6b;
+            transition: all 0.3s ease;
+        }
+        .navbar a:hover::after {
+            width: 60%;
+            left: 20%;
+        }
+        .navbar a:hover {
+            color: #ff6b6b;
+            transform: scale(1.1);
+        }
+        .navbar a.active {
+            color: #ff6b6b;
+        }
+        .navbar a.active::after {
+            width: 60%;
+            left: 20%;
+        }
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        .language-btn {
+            background: rgba(255, 107, 107, 0.9);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .language-btn:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        .language-switcher:hover .language-dropdown {
+            display: block;
+        }
+        .language-dropdown button {
+            display: block;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .language-dropdown button:hover {
+            background: #ff6b6b;
+            border-radius: 10px;
+        }
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .home-section {
+            color: #fff;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .home-section .logo {
+            width: 350px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        .home-section h1 {
+            font-size: 70px;
+            margin: 0 0 15px;
+            animation: fadeInUp 1.5s ease;
+        }
+        .home-section p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #ff6b6b;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.7);
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        .product {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            height: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .product img {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .product p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+        .product .details {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 107, 107, 0.9);
+            color: #fff;
+            padding: 10px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .product:hover .details {
+            bottom: 0;
+        }
+        .product:hover img {
+            transform: scale(0.9);
+        }
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .filter-bar input, .filter-bar select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .filter-bar input {
+            width: 250px;
+        }
+        h2 {
+            font-size: 40px;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #ff6b6b;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .divider {
+            width: 80%;
+            max-width: 1000px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ff6b6b, transparent);
+            margin: 40px auto;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: #ff6b6b;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        #back-to-top.visible {
+            opacity: 1;
+        }
+        #back-to-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <a href="#home"></a>
+        <a href="#products"></a>
+        <a href="#philosophy"></a>
+        <a href="#about"></a>
+        <a href="#testimonials"></a>
+        <a href="#contact"></a>
+    </div>
+
+    <!-- 语言切换 -->
+    <div class="language-switcher">
+        <button class="language-btn" id="current-lang">简体</button>
+        <div class="language-dropdown">
+            <button data-lang="zh-CN">简体中文</button>
+            <button data-lang="zh-TW">繁體中文</button>
+            <button data-lang="en">English</button>
+            <button data-lang="ar">العربية</button>
+        </div>
+    </div>
+
+    <!-- 首页 -->
+    <div id="home" class="section home-section">
+        <img src="images/logo.png" alt="品牌Logo" class="logo">
+        <h1></h1>
+        <p></p>
+        <a href="#products" class="cta-button"></a>
+    </div>
+
+    <!-- 产品展示区 -->
+    <div id="products" class="section">
+        <h2></h2>
+        <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
+        <div class="filter-bar">
+            <input type="text" id="search-input" placeholder="">
+            <select id="price-filter">
+                <option value="all"></option>
+                <option value="0-99"></option>
+                <option value="100-109"></option>
+                <option value="110-125"></option>
+            </select>
+        </div>
+        <div class="products">
+            <div class="product">
+                <img src="images/shoe1.jpg" alt="星光漫步">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe2.jpg" alt="彩虹飞跃">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe3.jpg" alt="云端轻盈">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe4.jpg" alt="梦幻冒险">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe5.jpg" alt="活力晨曦">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe6.jpg" alt="海洋探秘">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe7.jpg" alt="森林漫游">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe8.jpg" alt="银河奔跑">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe9.jpg" alt="微风轻舞">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe10.jpg" alt="极光逐梦">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe11.jpg" alt="星辰守护">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe12.jpg" alt="童趣派对">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe13.jpg" alt="晴空漫步">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe14.jpg" alt="奇幻旅程">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe15.jpg" alt="晨雾柔步">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe16.jpg" alt="飞鸟轻翔">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe17.jpg" alt="花海嬉戏">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe18.jpg" alt="月光漫游">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe19.jpg" alt="彩霞追逐">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe20.jpg" alt="冒险先锋">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe21.jpg" alt="晨星闪烁">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe22.jpg" alt="幻想乐园">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe23.jpg" alt="微光之旅">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe24.jpg" alt="星空探险">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe25.jpg" alt="活力旋律">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe26.jpg" alt="梦境飞翔">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe27.jpg" alt="轻盈步伐">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe28.jpg" alt="奇趣探秘">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe29.jpg" alt="晨光逐影">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe30.jpg" alt="星河漫步">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe31.jpg" alt="风铃轻响">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe32.jpg" alt="童心飞扬">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe33.jpg" alt="晴日畅游">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe34.jpg" alt="梦幻星途">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe35.jpg" alt="彩虹之旅">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe36.jpg" alt="云海漫行">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe37.jpg" alt="微光童话">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe38.jpg" alt="奇境漫游">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe39.jpg" alt="星光乐章">
+                <p></p>
+                <div class="details"></div>
+            </div>
+            <div class="product">
+                <img src="images/shoe40.jpg" alt="活力畅想">
+                <p></p>
+                <div class="details"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 品牌理念 -->
+    <div id="philosophy" class="section">
+        <h2></h2>
+        <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
+        <img src="images/philosophy.jpg" alt="品牌理念" style="width: 600px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);">
+        <div class="divider"></div>
+    </div>
+
+    <!-- 关于我们 -->
+    <div id="about" class="section">
+        <h2></h2>
+        <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
+        <img src="images/team.jpg" alt="团队" style="width: 700px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);">
+        <div class="divider"></div>
+    </div>
+
+    <!-- 客户评价 -->
+    <div id="testimonials" class="section">
+        <h2></h2>
+        <p style="font-size: 20px; max-width: 900px; margin: 0 auto 40px; color: #ddd;"></p>
+        <div class="divider"></div>
+    </div>
+
+    <!-- 联系我们 -->
+    <div id="contact" class="section">
+        <h2></h2>
+        <p style="font-size: 20px; color: #ddd;"></p>
+        <p style="font-size: 20px; color: #ddd;"></p>
+        <p style="font-size: 20px; color: #ddd;"></p>
+        <p style="font-size: 16px; color: #bbb; margin-top: 20px;"></p>
+        <a href="mailto:service@yudrich.com" class="cta-button" style="margin-top: 30px;"></a>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p></p>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" title="">↑</button>
+    <!-- JavaScript -->
+    <script>
+        // 翻译对象
+        const translations = {
+            'zh-CN': {
+                title: 'YUDRICH 尤德里奇 - 引领时尚童鞋新风尚',
+                nav: ['首页', '产品系列', '品牌理念', '关于我们', '客户评价', '联系我们'],
+                home_h1: 'YUDRICH 尤德里奇',
+                home_p: '以匠心工艺，点亮童年每一步；以时尚设计，定义儿童鞋履新典范。',
+                cta: '探索产品系列',
+                products_h2: '精选产品系列',
+                products_p: '每一款童鞋都融合了顶级材质与前沿设计，为孩子们带来无与伦比的舒适与时尚体验。',
+                search_placeholder: '输入关键字搜索（如“星光”）',
+                price_filter: ['所有价格', '¥0 - ¥99', '¥100 - ¥109', '¥110 - ¥125'],
+                products: [
+                    { name: '星光漫步 - ¥99', details: '柔软鞋底，透气材质，适合夜间活动' },
+                    { name: '彩虹飞跃 - ¥109', details: '多彩拼接，防滑设计，活力无限' },
+                    { name: '云端轻盈 - ¥89', details: '超轻 EVA 鞋底，舒适全天' },
+                    { name: '梦幻冒险 - ¥119', details: '防水面料，适合户外探险' },
+                    { name: '活力晨曦 - ¥95', details: '明亮配色，激发早起活力' },
+                    { name: '海洋探秘 - ¥105', details: '蓝色主题，抗菌内衬' },
+                    { name: '森林漫游 - ¥99', details: '自然色调，耐磨鞋头' },
+                    { name: '银河奔跑 - ¥110', details: '荧光细节，夜跑更安全' },
+                    { name: '微风轻舞 - ¥85', details: '透气网面，轻盈如风' },
+                    { name: '极光逐梦 - ¥120', details: '渐变设计，梦幻质感' },
+                    { name: '星辰守护 - ¥100', details: '加厚鞋垫，保护小脚' },
+                    { name: '童趣派对 - ¥115', details: '卡通图案，派对必备' },
+                    { name: '晴空漫步 - ¥90', details: '清新蓝色，夏日首选' },
+                    { name: '奇幻旅程 - ¥125', details: '高帮设计，支持脚踝' },
+                    { name: '晨雾柔步 - ¥95', details: '柔软绒面，清晨舒适' },
+                    { name: '飞鸟轻翔 - ¥108', details: '羽翼装饰，灵动轻快' },
+                    { name: '花海嬉戏 - ¥88', details: '花卉印花，春日浪漫' },
+                    { name: '月光漫游 - ¥112', details: '反光材质，夜间安全' },
+                    { name: '彩霞追逐 - ¥97', details: '渐变鞋带，活力四射' },
+                    { name: '冒险先锋 - ¥118', details: '耐磨鞋底，户外必备' },
+                    { name: '晨星闪烁 - ¥93', details: '星形装饰，清新亮眼' },
+                    { name: '幻想乐园 - ¥107', details: '梦幻配色，童趣满满' },
+                    { name: '微光之旅 - ¥86', details: '柔光设计，温暖脚丫' },
+                    { name: '星空探险 - ¥123', details: '深蓝星空，探险首选' },
+                    { name: '活力旋律 - ¥98', details: '音符图案，动感十足' },
+                    { name: '梦境飞翔 - ¥114', details: '羽毛点缀，轻盈如梦' },
+                    { name: '轻盈步伐 - ¥91', details: '超轻设计，跑步无忧' },
+                    { name: '奇趣探秘 - ¥116', details: '趣味贴纸，激发好奇' },
+                    { name: '晨光逐影 - ¥94', details: '金色细节，清新明亮' },
+                    { name: '星河漫步 - ¥121', details: '银河印花，梦幻之旅' },
+                    { name: '风铃轻响 - ¥96', details: '铃铛装饰，清脆悦耳' },
+                    { name: '童心飞扬 - ¥109', details: '鲜艳色彩，释放童真' },
+                    { name: '晴日畅游 - ¥87', details: '透气鞋面，夏日清凉' },
+                    { name: '梦幻星途 - ¥124', details: '星光点缀，高端大气' },
+                    { name: '彩虹之旅 - ¥92', details: '七彩设计，欢乐无限' },
+                    { name: '云海漫行 - ¥113', details: '云朵纹理，柔软舒适' },
+                    { name: '微光童话 - ¥89', details: '童话元素，温馨设计' },
+                    { name: '奇境漫游 - ¥117', details: '奇幻主题，创意无限' },
+                    { name: '星光乐章 - ¥99', details: '音乐灵感，节奏感强' },
+                    { name: '活力畅想 - ¥110', details: '动感线条，活力四射' }
+                ],
+                philosophy_h2: '品牌理念',
+                philosophy_p: '我们相信，每一步都承载着童年的梦想。YUDRICH 尤德里奇以创新设计与卓越品质，致力于为孩子们打造兼具美感与功能的鞋履，让他们在探索世界的旅途中自信前行。',
+                about_h2: '关于我们',
+                about_p: 'YUDRICH 尤德里奇成立于2025年，由一群热爱设计与儿童生活的创意者创立。我们精选环保材料，结合前沿科技，打造出既时尚又耐穿的童鞋系列，旨在成为全球儿童鞋履领域的标杆品牌。',
+                testimonials_h2: '客户评价',
+                testimonials_p: '“我家宝贝穿上这些鞋子后，跑跳自如，设计也特别好看！” —— 李女士<br><br>“质量超乎预期，孩子说穿得很舒服，值得推荐！” —— 张先生<br><br>“时尚又实用，终于找到适合孩子的完美鞋履品牌。” —— 王妈妈',
+                contact_h2: '联系我们',
+                contact_email: '邮箱: service@yudrich.com',
+                contact_phone: '电话: +86 123-4567-8900',
+                contact_address: '地址: 中国上海市浦东新区创新大道88号',
+                contact_p: '欢迎随时联系我们，了解更多品牌故事与合作机会。',
+                contact_cta: '发送邮件',
+                footer: '© 2025 YUDRICH 尤德里奇 - 以爱与匠心，陪伴童年每一步',
+                back_to_top: '返回顶部'
+            },
+            'zh-TW': {
+                title: 'YUDRICH 尤德里奇 - 引領時尚童鞋新風尚',
+                nav: ['首頁', '產品系列', '品牌理念', '關於我們', '客戶評價', '聯繫我們'],
+                home_h1: 'YUDRICH 尤德里奇',
+                home_p: '以匠心工藝，點亮童年每一步；以時尚設計，定義兒童鞋履新典範。',
+                cta: '探索產品系列',
+                products_h2: '精選產品系列',
+                products_p: '每一款童鞋都融合了頂級材質與前沿設計，為孩子們帶來無與倫比的舒適與時尚體驗。',
+                search_placeholder: '輸入關鍵字搜索（如“星光”）',
+                price_filter: ['所有價格', '¥0 - ¥99', '¥100 - ¥109', '¥110 - ¥125'],
+                products: [
+                    { name: '星光漫步 - ¥99', details: '柔軟鞋底，透氣材質，適合夜間活動' },
+                    { name: '彩虹飛躍 - ¥109', details: '多彩拼接，防滑設計，活力無限' },
+                    { name: '雲端輕盈 - ¥89', details: '超輕 EVA 鞋底，舒適全天' },
+                    { name: '夢幻冒險 - ¥119', details: '防水面料，適合戶外探險' },
+                    { name: '活力晨曦 - ¥95', details: '明亮配色，激發早起活力' },
+                    { name: '海洋探秘 - ¥105', details: '藍色主題，抗菌內襯' },
+                    { name: '森林漫遊 - ¥99', details: '自然色調，耐磨鞋頭' },
+                    { name: '銀河奔跑 - ¥110', details: '螢光細節，夜跑更安全' },
+                    { name: '微風輕舞 - ¥85', details: '透氣網面，輕盈如風' },
+                    { name: '極光逐夢 - ¥120', details: '漸變設計，夢幻質感' },
+                    { name: '星辰守護 - ¥100', details: '加厚鞋墊，保護小腳' },
+                    { name: '童趣派對 - ¥115', details: '卡通圖案，派對必備' },
+                    { name: '晴空漫步 - ¥90', details: '清新藍色，夏日首選' },
+                    { name: '奇幻旅程 - ¥125', details: '高幫設計，支撐腳踝' },
+                    { name: '晨霧柔步 - ¥95', details: '柔軟絨面，清晨舒適' },
+                    { name: '飛鳥輕翔 - ¥108', details: '羽翼裝飾，靈動輕快' },
+                    { name: '花海嬉戲 - ¥88', details: '花卉印花，春日浪漫' },
+                    { name: '月光漫遊 - ¥112', details: '反光材質，夜間安全' },
+                    { name: '彩霞追逐 - ¥97', details: '漸變鞋帶，活力四射' },
+                    { name: '冒險先鋒 - ¥118', details: '耐磨鞋底，戶外必備' },
+                    { name: '晨星閃爍 - ¥93', details: '星形裝飾，清新亮眼' },
+                    { name: '幻想樂園 - ¥107', details: '夢幻配色，童趣滿滿' },
+                    { name: '微光之旅 - ¥86', details: '柔光設計，溫暖腳丫' },
+                    { name: '星空探險 - ¥123', details: '深藍星空，探險首選' },
+                    { name: '活力旋律 - ¥98', details: '音符圖案，動感十足' },
+                    { name: '夢境飛翔 - ¥114', details: '羽毛點綴，輕盈如夢' },
+                    { name: '輕盈步伐 - ¥91', details: '超輕設計，跑步無憂' },
+                    { name: '奇趣探秘 - ¥116', details: '趣味貼紙，激發好奇' },
+                    { name: '晨光逐影 - ¥94', details: '金色細節，清新明亮' },
+                    { name: '星河漫步 - ¥121', details: '銀河印花，夢幻之旅' },
+                    { name: '風鈴輕響 - ¥96', details: '鈴鐺裝飾，清脆悅耳' },
+                    { name: '童心飛揚 - ¥109', details: '鮮艷色彩，釋放童真' },
+                    { name: '晴日暢遊 - ¥87', details: '透氣鞋面，夏日清涼' },
+                    { name: '夢幻星途 - ¥124', details: '星光點綴，高端大氣' },
+                    { name: '彩虹之旅 - ¥92', details: '七彩設計，歡樂無限' },
+                    { name: '雲海漫行 - ¥113', details: '雲朵紋理，柔軟舒適' },
+                    { name: '微光童話 - ¥89', details: '童話元素，溫馨設計' },
+                    { name: '奇境漫遊 - ¥117', details: '奇幻主題，創意無限' },
+                    { name: '星光樂章 - ¥99', details: '音樂靈感，節奏感強' },
+                    { name: '活力暢想 - ¥110', details: '動感線條，活力四射' }
+                ],
+                philosophy_h2: '品牌理念',
+                philosophy_p: '我們相信，每一步都承載著童年的夢想。YUDRICH 尤德里奇以創新設計與卓越品質，致力於為孩子們打造兼具美感與功能的鞋履，讓他們在探索世界的旅途中自信前行。',
+                about_h2: '關於我們',
+                about_p: 'YUDRICH 尤德里奇成立於2025年，由一群熱愛設計與兒童生活的創意者創立。我們精選環保材料，結合前沿科技，打造出既時尚又耐穿的童鞋系列，旨在成為全球兒童鞋履領域的標杆品牌。',
+                testimonials_h2: '客戶評價',
+                testimonials_p: '“我家寶貝穿上這些鞋子後，跑跳自如，設計也特別好看！” —— 李女士<br><br>“品質超乎預期，孩子說穿得很舒服，值得推薦！” —— 張先生<br><br>“時尚又實用，終於找到適合孩子的完美鞋履品牌。” —— 王媽媽',
+                contact_h2: '聯繫我們',
+                contact_email: '郵箱: service@yudrich.com',
+                contact_phone: '電話: +86 123-4567-8900',
+                contact_address: '地址: 中國上海市浦東新區創新大道88號',
+                contact_p: '歡迎隨時聯繫我們，了解更多品牌故事與合作機會。',
+                contact_cta: '發送郵件',
+                footer: '© 2025 YUDRICH 尤德里奇 - 以愛與匠心，陪伴童年每一步',
+                back_to_top: '返回頂部'
+            },
+            'en': {
+                title: 'YUDRICH - Leading the New Trend in Children\'s Footwear',
+                nav: ['Home', 'Product Series', 'Brand Philosophy', 'About Us', 'Customer Reviews', 'Contact Us'],
+                home_h1: 'YUDRICH',
+                home_p: 'With artisanal craftsmanship, we light up every step of childhood; with stylish design, we redefine the standard of children\'s footwear.',
+                cta: 'Explore Product Series',
+                products_h2: 'Featured Product Series',
+                products_p: 'Each pair of children\'s shoes combines top-quality materials with cutting-edge design, offering kids an unmatched blend of comfort and style.',
+                search_placeholder: 'Search by keyword (e.g., “Starlight”)',
+                price_filter: ['All Prices', '$0 - $99', '$100 - $109', '$110 - $125'],
+                products: [
+                    { name: 'Starlight Stroll - $99', details: 'Soft sole, breathable material, perfect for nighttime activities' },
+                    { name: 'Rainbow Leap - $109', details: 'Colorful patchwork, non-slip design, full of energy' },
+                    { name: 'Cloud Light - $89', details: 'Ultra-light EVA sole, all-day comfort' },
+                    { name: 'Dream Adventure - $119', details: 'Waterproof fabric, ideal for outdoor exploration' },
+                    { name: 'Vital Dawn - $95', details: 'Bright colors, sparking morning energy' },
+                    { name: 'Ocean Quest - $105', details: 'Blue theme, antibacterial lining' },
+                    { name: 'Forest Roam - $99', details: 'Natural tones, wear-resistant toe' },
+                    { name: 'Galaxy Run - $110', details: 'Fluorescent details, safer night runs' },
+                    { name: 'Breeze Dance - $85', details: 'Breathable mesh, light as a breeze' },
+                    { name: 'Aurora Chase - $120', details: 'Gradient design, dreamy texture' },
+                    { name: 'Starry Guard - $100', details: 'Thickened insole, foot protection' },
+                    { name: 'Fun Party - $115', details: 'Cartoon patterns, party essential' },
+                    { name: 'Clear Sky Walk - $90', details: 'Fresh blue, summer choice' },
+                    { name: 'Fantasy Journey - $125', details: 'High-top design, ankle support' },
+                    { name: 'Morning Mist Step - $95', details: 'Soft suede, morning comfort' },
+                    { name: 'Bird Flight - $108', details: 'Wing decor, lively and light' },
+                    { name: 'Flower Play - $88', details: 'Floral print, spring romance' },
+                    { name: 'Moonlight Roam - $112', details: 'Reflective material, night safety' },
+                    { name: 'Sunset Chase - $97', details: 'Gradient laces, vibrant energy' },
+                    { name: 'Adventure Pioneer - $118', details: 'Durable sole, outdoor must-have' },
+                    { name: 'Morning Star - $93', details: 'Star decor, fresh and striking' },
+                    { name: 'Fantasy Park - $107', details: 'Dreamy colors, full of fun' },
+                    { name: 'Glimmer Trip - $86', details: 'Soft glow design, warm feet' },
+                    { name: 'Starry Adventure - $123', details: 'Deep blue starry sky, exploration pick' },
+                    { name: 'Vivid Melody - $98', details: 'Musical notes, dynamic vibe' },
+                    { name: 'Dream Flight - $114', details: 'Feather accents, light as a dream' },
+                    { name: 'Light Step - $91', details: 'Ultra-light design, worry-free running' },
+                    { name: 'Curious Quest - $116', details: 'Fun stickers, sparking curiosity' },
+                    { name: 'Dawn Shadow - $94', details: 'Golden details, fresh and bright' },
+                    { name: 'Galactic Walk - $121', details: 'Galaxy print, dreamy journey' },
+                    { name: 'Wind Chime - $96', details: 'Bell decor, crisp and pleasant' },
+                    { name: 'Childlike Joy - $109', details: 'Vivid colors, unleashing innocence' },
+                    { name: 'Sunny Swim - $87', details: 'Breathable upper, summer coolness' },
+                    { name: 'Dreamy Path - $124', details: 'Starry accents, upscale elegance' },
+                    { name: 'Rainbow Trip - $92', details: 'Seven-color design, endless joy' },
+                    { name: 'Cloud Sea - $113', details: 'Cloud texture, soft comfort' },
+                    { name: 'Twilight Tale - $89', details: 'Fairy tale elements, cozy design' },
+                    { name: 'Wonder Roam - $117', details: 'Fantasy theme, boundless creativity' },
+                    { name: 'Starry Verse - $99', details: 'Music-inspired, rhythmic feel' },
+                    { name: 'Vivid Dream - $110', details: 'Dynamic lines, bursting with energy' }
+                ],
+                philosophy_h2: 'Brand Philosophy',
+                philosophy_p: 'We believe every step carries a child\'s dreams. YUDRICH is dedicated to crafting footwear that blends aesthetics and functionality, empowering kids to explore the world with confidence.',
+                about_h2: 'About Us',
+                about_p: 'Founded in 2025 by a group of design and child-life enthusiasts, YUDRICH selects eco-friendly materials and integrates advanced technology to create stylish, durable children\'s shoes, aiming to set a global benchmark in the industry.',
+                testimonials_h2: 'Customer Reviews',
+                testimonials_p: '“My little one loves running and jumping in these shoes, and the design is adorable!” — Ms. Li<br><br>“The quality exceeded my expectations; my child says they’re super comfy. Highly recommend!” — Mr. Zhang<br><br>“Stylish and practical—finally, a perfect footwear brand for kids.” — Mama Wang',
+                contact_h2: 'Contact Us',
+                contact_email: 'Email: service@yudrich.com',
+                contact_phone: 'Phone: +86 123-4567-8900',
+                contact_address: 'Address: 88 Innovation Avenue, Pudong New Area, Shanghai, China',
+                contact_p: 'Feel free to reach out anytime to learn more about our brand story and collaboration opportunities.',
+                contact_cta: 'Send Email',
+                footer: '© 2025 YUDRICH - With Love and Craftsmanship, Accompanying Every Step of Childhood',
+                back_to_top: 'Back to Top'
+            },
+            'ar': {
+                title: 'يودريش YUDRICH - تقود الاتجاه الجديد في أحذية الأطفال',
+                nav: ['الصفحة الرئيسية', 'سلسلة المنتجات', 'فلسفة العلامة', 'معلومات عنا', 'آراء العملاء', 'اتصل بنا'],
+                home_h1: 'يودريش YUDRICH',
+                home_p: 'مع الحرفية الفنية، نضيء كل خطوة في الطفولة؛ مع التصميم الأنيق، نعيد تعريف معايير أحذية الأطفال.',
+                cta: 'استكشف سلسلة المنتجات',
+                products_h2: 'سلسلة المنتجات المميزة',
+                products_p: 'كل زوج من أحذية الأطفال يجمع بين مواد عالية الجودة وتصميم متطور، مقدمًا للأطفال مزيجًا لا مثيل له من الراحة والأناقة.',
+                search_placeholder: 'ابحث بكلمة مفتاحية (مثل "ضوء النجوم")',
+                price_filter: ['جميع الأسعار', '$0 - $99', '$100 - $109', '$110 - $125'],
+                products: [
+                    { name: 'تجوال ضوء النجوم - $99', details: 'نعل ناعم، مادة قابلة للتنفس، مثالي للأنشطة الليلية' },
+                    { name: 'قفزة قوس قزح - $109', details: 'تجميع ملون، تصميم مانع للانزلاق، مليئ بالحيوية' },
+                    { name: 'خفة السحاب - $89', details: 'نعل EVA خفيف للغاية، راحة طوال اليوم' },
+                    { name: 'مغامرة الأحلام - $119', details: 'نسيج مقاوم للماء، مثالي للاستكشاف في الهواء الطلق' },
+                    { name: 'فجر الحيوية - $95', details: 'ألوان زاهية، تحفز النشاط الصباحي' },
+                    { name: 'استكشاف المحيط - $105', details: 'ثيم أزرق، بطانة مضادة للبكتيريا' },
+                    { name: 'تجوال الغابة - $99', details: 'ألوان طبيعية، مقدمة مقاومة للتآكل' },
+                    { name: 'جري المجرة - $110', details: 'تفاصيل فلورية، أمان أكثر في الجري الليلي' },
+                    { name: 'رقصة النسيم - $85', details: 'شبكة قابلة للتنفس، خفيفة كالنسيم' },
+                    { name: 'مطاردة الأورورا - $120', details: 'تصميم متدرج، ملمس حالم' },
+                    { name: 'حارس النجوم - $100', details: 'نعل داخلي سميك، حماية القدم' },
+                    { name: 'حفلة المرح - $115', details: 'أنماط كرتونية، ضرورية للحفلات' },
+                    { name: 'تجوال السماء الصافية - $90', details: 'أزرق منعش، خيار الصيف' },
+                    { name: 'رحلة خيالية - $125', details: 'تصميم عالي الرقبة، دعم الكاحل' },
+                    { name: 'خطوة ضباب الصباح - $95', details: 'جلد سويدي ناعم، راحة الصباح' },
+                    { name: 'طيران الطيور - $108', details: 'زخرفة أجنحة، حيوية وخفيفة' },
+                    { name: 'لعب في بحر الزهور - $88', details: 'طباعة زهور، رومانسية الربيع' },
+                    { name: 'تجوال ضوء القمر - $112', details: 'مادة عاكسة، أمان ليلي' },
+                    { name: 'مطاردة الغروب - $97', details: 'أربطة متدرجة، طاقة نابضة' },
+                    { name: 'رائد المغامرة - $118', details: 'نعل متين، ضروري للخارج' },
+                    { name: 'نجمة الصباح - $93', details: 'زخرفة نجمية، منعشة وملفتة' },
+                    { name: 'حديقة الخيال - $107', details: 'ألوان حالمة، مليئة بالمرح' },
+                    { name: 'رحلة التألق - $86', details: 'تصميم بضوء ناعم، دفء القدمين' },
+                    { name: 'مغامرة النجوم - $123', details: 'سماء نجمية زرقاء عميقة، خيار الاستكشاف' },
+                    { name: 'لحن الحيوية - $98', details: 'أنماط نوتات موسيقية، إحساس ديناميكي' },
+                    { name: 'طيران الأحلام - $114', details: 'زخرفة ريش، خفيفة كالحلم' },
+                    { name: 'خطوة خفيفة - $91', details: 'تصميم خفيف للغاية، جري بدون قلق' },
+                    { name: 'استكشاف المرح - $116', details: 'ملصقات ممتعة، تحفز الفضول' },
+                    { name: 'ظل الفجر - $94', details: 'تفاصيل ذهبية، منعشة ومشرقة' },
+                    { name: 'تجوال المجرة - $121', details: 'طباعة مجرة، رحلة حالمة' },
+                    { name: 'جرس الرياح - $96', details: 'زخرفة جرس، صوت نقي وممتع' },
+                    { name: 'فرحة الطفولة - $109', details: 'ألوان زاهية، تطلق البراءة' },
+                    { name: 'سباحة مشمسة - $87', details: 'جزء علوي قابل للتنفس، برودة الصيف' },
+                    { name: 'مسار الأحلام - $124', details: 'زخرفة نجمية، أناقة راقية' },
+                    { name: 'رحلة قوس قزح - $92', details: 'تصميم سباعي الألوان، فرح لا نهائي' },
+                    { name: 'بحر السحاب - $113', details: 'نسيج سحابي، راحة ناعمة' },
+                    { name: 'حكاية الغسق - $89', details: 'عناصر خرافية، تصميم دافئ' },
+                    { name: 'تجوال العجائب - $117', details: 'ثيم خيالي، إبداع بلا حدود' },
+                    { name: 'آية النجوم - $99', details: 'مستوحاة من الموسيقى، إحساس إيقاعي' },
+                    { name: 'حلم نابض - $110', details: 'خطوط ديناميكية، طاقة متفجرة' }
+                ],
+                philosophy_h2: 'فلسفة العلامة التجارية',
+                philosophy_p: 'نؤمن أن كل خطوة تحمل أحلام الطفولة. يودريش YUDRICH مكرسة لصناعة أحذية تجمع بين الجمال والوظيفية، تمكّن الأطفال من استكشاف العالم بثقة.',
+                about_h2: 'معلومات عنا',
+                about_p: 'تأسست يودريش YUDRICH في عام 2025 على يد مجموعة من عشاق التصميم وحياة الأطفال، نختار مواد صديقة للبيئة وندمج التكنولوجيا المتقدمة لخلق أحذية أطفال أنيقة ومتينة، بهدف وضع معيار عالمي في هذا المجال.',
+                testimonials_h2: 'آراء العملاء',
+                testimonials_p: '“طفلي الصغير يحب الجري والقفز بهذه الأحذية، والتصميم رائع!” — السيدة لي<br><br>“الجودة فاقت توقعاتي، طفلي يقول إنها مريحة جدًا، أوصي بها بشدة!” — السيد تشانغ<br><br>“أنيقة وعملية—أخيرًا، علامة تجارية مثالية لأحذية الأطفال.” — أم وانغ',
+                contact_h2: 'اتصل بنا',
+                contact_email: 'البريد الإلكتروني: service@yudrich.com',
+                contact_phone: 'الهاتف: +86 123-4567-8900',
+                contact_address: 'العنوان: 88 شارع الابتكار، منطقة بودونغ الجديدة، شنغهاي، الصين',
+                contact_p: 'لا تتردد في التواصل معنا في أي وقت لمعرفة المزيد عن قصة علامتنا وفرص التعاون.',
+                contact_cta: 'إرسال بريد إلكتروني',
+                footer: '© 2025 يودريش YUDRICH - بالحب والحرفية، نرافق كل خطوة في الطفولة',
+                back_to_top: 'العودة إلى الأعلى'
+            }
+        };
+
+        // 导航平滑滚动
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('.section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            navLinks[0].classList.add('active');
+        });
+
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[0].classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 产品筛选功能
+        const products = document.querySelectorAll('.product');
+        const searchInput = document.getElementById('search-input');
+        const priceFilter = document.getElementById('price-filter');
+
+        function filterProducts() {
+            const searchText = searchInput.value.toLowerCase();
+            const priceRange = priceFilter.value;
+
+            products.forEach(product => {
+                const name = product.querySelector('p').textContent.toLowerCase();
+                const priceText = product.querySelector('p').textContent.match(/[$¥](\d+)/)[1];
+                const price = parseInt(priceText);
+
+                let showBySearch = searchText === '' || name.includes(searchText);
+                let showByPrice = priceRange === 'all' || (
+                    (priceRange === '0-99' && price <= 99) ||
+                    (priceRange === '100-109' && price >= 100 && price <= 109) ||
+                    (priceRange === '110-125' && price >= 110 && price <= 125)
+                );
+
+                product.style.display = (showBySearch && showByPrice) ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', filterProducts);
+        priceFilter.addEventListener('change', filterProducts);
+
+        // 语言切换功能
+        const currentLangBtn = document.getElementById('current-lang');
+        const langButtons = document.querySelectorAll('.language-dropdown button');
+        let currentLang = 'zh-CN';
+
+        function updateLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+
+            document.querySelectorAll('.navbar a').forEach((link, idx) => {
+                link.textContent = t.nav[idx];
+            });
+
+            document.querySelector('#home h1').textContent = t.home_h1;
+            document.querySelector('#home p').textContent = t.home_p;
+            document.querySelector('#home .cta-button').textContent = t.cta;
+
+            document.querySelector('#products h2').textContent = t.products_h2;
+            document.querySelector('#products > p').textContent = t.products_p;
+            document.getElementById('search-input').placeholder = t.search_placeholder;
+            document.querySelectorAll('#price-filter option').forEach((opt, idx) => {
+                opt.textContent = t.price_filter[idx];
+            });
+            document.querySelectorAll('.product').forEach((product, idx) => {
+                product.querySelector('p').textContent = t.products[idx].name;
+                product.querySelector('.details').textContent = t.products[idx].details;
+            });
+
+            document.querySelector('#philosophy h2').textContent = t.philosophy_h2;
+            document.querySelector('#philosophy p').textContent = t.philosophy_p;
+            document.querySelector('#about h2').textContent = t.about_h2;
+            document.querySelector('#about p').textContent = t.about_p;
+            document.querySelector('#testimonials h2').textContent = t.testimonials_h2;
+            document.querySelector('#testimonials p').innerHTML = t.testimonials_p;
+            document.querySelector('#contact h2').textContent = t.contact_h2;
+            document.querySelector('#contact p:nth-of-type(1)').textContent = t.contact_email;
+            document.querySelector('#contact p:nth-of-type(2)').textContent = t.contact_phone;
+            document.querySelector('#contact p:nth-of-type(3)').textContent = t.contact_address;
+            document.querySelector('#contact p:nth-of-type(4)').textContent = t.contact_p;
+            document.querySelector('#contact .cta-button').textContent = t.contact_cta;
+
+            document.querySelector('footer p').textContent = t.footer;
+            document.getElementById('back-to-top').title = t.back_to_top;
+
+            if (lang === 'ar') {
+                document.body.style.direction = 'rtl';
+                document.querySelectorAll('.section').forEach(section => section.style.textAlign = 'right');
+            } else {
+                document.body.style.direction = 'ltr';
+                document.querySelectorAll('.section').forEach(section => section.style.textAlign = 'center');
+            }
+        }
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentLang = button.getAttribute('data-lang');
+                currentLangBtn.textContent = button.textContent.trim();
+                updateLanguage(currentLang);
+            });
+        });
+
+        updateLanguage('zh-CN');
+    </script>
+</body>
+</html>
